@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeleteApplication {
+public class AlterApplication {
 
     private static final String FILE_PATH = "src/ApplicationContents.txt";
 
@@ -11,21 +11,43 @@ public class DeleteApplication {
         List<String> applications = readApplications();
 
         for (String application : applications) {
-            String title = application.split("\n")[0];
+            String title = application.split("\n")[0]; // Extract title
             titles.add(title);
         }
         return titles;
     }
 
-    public void deleteApplication(int applicationIndex) throws IOException {
+    public List<String> getApplicationDetails(int applicationIndex) throws IOException {
         List<String> applications = readApplications();
 
         if (applicationIndex < 0 || applicationIndex >= applications.size()) {
             throw new IndexOutOfBoundsException("Invalid application index.");
         }
 
-        applications.remove(applicationIndex);
+        String[] details = applications.get(applicationIndex).split("\n");
+        List<String> detailList = new ArrayList<>();
+        for (String detail : details) {
+            detailList.add(detail);
+        }
+        return detailList;
+    }
 
+    public void updateApplicationDetail(int applicationIndex, int detailIndex, String newValue) throws IOException {
+        List<String> applications = readApplications();
+
+        if (applicationIndex < 0 || applicationIndex >= applications.size()) {
+            throw new IndexOutOfBoundsException("Invalid application index.");
+        }
+
+        String[] selectedApplication = applications.get(applicationIndex).split("\n");
+        if (detailIndex < 1 || detailIndex > selectedApplication.length) {
+            throw new IndexOutOfBoundsException("Invalid detail index.");
+        }
+
+        String detailLabel = selectedApplication[detailIndex].split(":")[0]; // Extract label
+        selectedApplication[detailIndex] = detailLabel + ": " + newValue;
+
+        applications.set(applicationIndex, String.join("\n", selectedApplication));
         writeApplications(applications);
     }
 
