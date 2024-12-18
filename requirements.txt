@@ -1,1 +1,51 @@
+AppendApplication:
+    Class must make it so you can add an application to a text file
+    Must store:
+        Title - Name of the company I have applied to
+        1) Job description
+        2) Salary
+        3) Location
+        4) Duration
+        5) Date of duration if applicable
+        4) Number of tests to take
+        5) Number of tests taken
+        6) Status in application process
+    Must store these values with their numerical values alongside them, as then we will be abble to distinguish when the next job starts (there will only be 6 numbers for each job)
+
+AlterApplication:
+    Will first ask which application you would like to alter
+    Will then output all the applications which could be altered
+    Will display them with a numerical value, so the user only has to input a number to select the application they want
+    Once selected, it will then display the information of the application, and once again ask which part you would like to alter
+    These are already numerically valued, and therefore will be used as such, user will have to input the numerical value of the detail of application they want
+    Will go into the text file and allow you to alter that line
+
+DeleteApplication:
+    Will go to user and ask what application they want deleted
+    Same system of assigning each application a numerical value, then having the user input a number
+    Will ask for confirmation once the user has selected an application
+    If the user confirms, will delete it.
+    This shouldnt be too difficult, to be honest, main concern is making sure it doesnt effect the formatting of any of the other lines
+
+ApplicationCollection:
+    Must be able to answer queries about the applications
+    For example:
+        Show me the rejected applications
+        Show me the accepted applications
+        Show me the pending applications
+        Show me the applications in London
+        Sort by highest salary
+        Sort by lowest salary
+        Group together job descriptions
+        S
+
+ApplicationDatabase
+    Must be able to query essentially whatever you want from this
+    This is where main will be
+    Every function of every class will be run through here
+    Must have a menu page, where you can decide what it is you are going to do
+    
+
+
+
 
